@@ -96,8 +96,7 @@ func spawn_new_element(in matchfield: [[Int]]) -> [[Int]] {
 
 // Checks if a save game has already be loaded
 if !game_loaded {
-    // Clear screen
-    print("\u{001B}[2J")
+    clear_screen()
     
     print("Please enter the desired size of the matchfield: ")
     let size = readLine()
@@ -113,8 +112,9 @@ if !game_loaded {
     matchfield = spawn_new_element(in: matchfield)
     matchfield = spawn_new_element(in: matchfield)
 }
-// Clear screen
-print("\u{001B}[2J")
+
+clear_screen()
+
 // Checks if moves are still possible
 while possible(matchfield) {
     // Prints Shell Slide Logo
@@ -161,105 +161,6 @@ while possible(matchfield) {
     matchfield = handle_move(matchfield, move: next_move!)
     matchfield = spawn_new_element(in: matchfield)
     
-    // Clear screen
-    print("\u{001B}[2J")
+    clear_screen()
 }
 
-/**
- Formats the matchfield in a grid like pattern
- */
-func print_matchfield(_ matchfield: [[Int]]) {
-    let string_matchfield : [[String]] = matchfield.map { $0.map{String($0)} }
-    let longest_char_num = String(Array(matchfield.joined()).sorted{$0 > $1}[0]).count
-    let terminal_string_matchfield = string_matchfield.map{ str_arr -> [TerminalString] in
-        return str_arr.map { str -> TerminalString in
-            if str.count != longest_char_num {
-                let space_amount = longest_char_num - str.count
-                let space_arr = Array(repeating: " ", count: space_amount)
-                
-                if Int(str) != 0 {
-                    return ck.green.bold.on(str.appending(space_arr.joined()))
-                }
-                return ck.on(str.appending(space_arr.joined()))
-            }
-            if Int(str) != 0 {
-                return ck.green.bold.on(str)
-            }
-            return ck.on(str)
-        }
-    }
-    
-    for i in terminal_string_matchfield {
-        for j in i {
-            print(j, terminator: " ")
-        }
-        print()
-    }
-}
-/**
- - Parameter matchfield: The matchfield
- - Parameter move: The move to be made as a String (should be: "w", "a", "s" or "d")
- */
-func handle_move(_ matchfield: [[Int]], move: String) -> [[Int]] {
-    var mutable_matchfield = matchfield
-    switch move {
-    case "w":
-        // Up
-        mutable_matchfield = up(matchfield)
-    case "a":
-        // Left
-        mutable_matchfield = left(matchfield)
-    case "s":
-        // Down
-        mutable_matchfield = down(matchfield)
-    case "d":
-        // Right
-        mutable_matchfield = right(matchfield)
-    default:
-        break
-    }
-    return mutable_matchfield
-}
-/**
- Checks if moves are possible in given matchfield
- 
- - Parameter matchfield: The matchfield
- 
- - Returns: true if other moves are possible
- */
-func possible(_ matchfield: [[Int]]) -> Bool {
-    return !matchfield.filter{$0.contains(0)}.isEmpty
-}
-
-/**
- Prints colorful Shell Slide Logo
- */
-func ascii_art() {
-    let ascii = """
-   _____ __         ____   _____ ___     __
-  / ___// /_  ___  / / /  / ___// (_)___/ /__
-  \\__ \\/ __ \\/ _ \\/ / /   \\__ \\/ / / __  / _ \\
- ___/ / / / /  __/ / /   ___/ / / / /_/ /  __/
-/____/_/ /_/\\___/_/_/   /____/_/_/\\__,_/\\___/
-                                              
-"""
-    print(
-        ascii.map {
-            ck.fg(.random).on(String($0))
-        }
-            .reduce(TerminalString()) {
-                $0 + $1
-            }
-    )
-}
-
-/**
- Returns the biggest value in the complete matchfield
- 
- - Parameter matchfield: The matchfield
- 
- - Returns: The biggest value in the matchfield as Integer
- */
-func get_highest_value(in matchfield: [[Int]]) -> Int {
-    return matchfield.joined().sorted{$0 > $1}[0]
-}
