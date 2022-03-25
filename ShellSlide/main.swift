@@ -8,6 +8,8 @@
 import Foundation
 import Chalk
 
+clear_screen()
+
 var matchfield : [[Int]] = []
 var highscore = 0
 var current_score = 0
@@ -59,7 +61,6 @@ if let saved_game = UserDefaults.standard.value(forKey: "saved_game") as? [[Int]
  - Returns: The array
 */
 func generate_matchfield(size: Int) -> [[Int]] {
-#warning("Handle size 0")
     var result : [[Int]] = []
     for _ in 0..<size {
         result.append(Array(repeating: 0, count: size))
@@ -96,17 +97,24 @@ func spawn_new_element(in matchfield: [[Int]]) -> [[Int]] {
 
 // Checks if a save game has already be loaded
 if !game_loaded {
-    clear_screen()
     
-    print("Please enter the desired size of the matchfield: ")
-    let size = readLine()
+    // Handle input (only Integers higher than 0)
+    var size: Int?
+    repeat {
+        clear_screen()
+        
+        print("Please enter the desired size of the matchfield: ")
+        let input = readLine()
+        
+        if let input = input, let int_input = Int(input) {
+            if int_input > 0 {
+                size = int_input
+            }
+        }
+    } while size == nil
     
     // Generate matchfield with the given size
-    if let size = size {
-        matchfield = generate_matchfield(size: Int(size) ?? 4)
-    } else {
-        matchfield = generate_matchfield(size: 4)
-    }
+    matchfield = generate_matchfield(size: size!)
     
     // Spawn two pieces
     matchfield = spawn_new_element(in: matchfield)
@@ -139,7 +147,7 @@ while possible(matchfield) {
     print("What is your next move? [ENTER]")
     
     // Request next move from the player
-    var next_move : String? = nil
+    var next_move : String?
     repeat {
         let input = readLine()
         if let input = input?.lowercased() {
