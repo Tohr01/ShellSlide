@@ -7,24 +7,54 @@
 
 import Foundation
 
+/**
+ Slides every row in the matchfield to the left
+ 
+ - Parameter matchfield: The matchfield
+ - Returns: The modified matchfield
+ */
 func left(_ matchfield: [[Int]]) -> [[Int]] {
     return matchfield.map{left_slide($0)}
 }
-
+/**
+ Slides every row in the matchfield to the right
+ 
+ - Parameter matchfield: The matchfield
+ - Returns: The modified matchfield
+ */
 func right(_ matchfield: [[Int]]) -> [[Int]] {
     return matchfield.map{left_slide($0.reversed()).reversed()}
 }
 
+/**
+ Slides every colum in the matchfield down
+ 
+ - Parameter matchfield: The matchfield
+ - Returns: The modified matchfield
+ */
 func down(_ matchfield: [[Int]]) -> [[Int]] {
     let transposed_matchfield =  right(transpose(matchfield))
     return transpose(transposed_matchfield)
 }
 
+/**
+ Slides every colum in the matchfield up
+ 
+ - Parameter matchfield: The matchfield
+ - Returns: The modified matchfield
+ */
 func up(_ matchfield: [[Int]]) -> [[Int]] {
     let transposed_matchfield =  left(transpose(matchfield))
     return transpose(transposed_matchfield)
 }
 
+/**
+ Transposes a two dimensional array
+ 
+ - Parameter arr: The array
+ 
+ - Returns: The transposed array
+ */
 func transpose(_ arr: [[Int]]) -> [[Int]] {
     var result_arr : [[Int]] = Array(repeating: [Int](repeating: 0, count: arr.count), count: arr[0].count)
     
@@ -37,7 +67,16 @@ func transpose(_ arr: [[Int]]) -> [[Int]] {
     return result_arr
 }
 
-
+/**
+ Moves the values in a given array to the left and merges two values that are either directly next to each other or separated by zeros
+ A number can only be merged once
+ 
+ Example:
+ [2, 0, 0, 2, 2, 4] will be -> [4, 2, 4, 0, 0, 0]
+ 
+ - Parameter arr: The array
+ - Returns: Merged array
+ */
 func left_slide(_ arr: [Int]) -> [Int] {
     // Check if arr is empty
     if arr.isEmpty { return [] }

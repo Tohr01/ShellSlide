@@ -232,7 +232,7 @@ func possible(_ matchfield: [[Int]]) -> Bool {
 }
 
 /**
- Prints Shell Slide Logo
+ Prints colorful Shell Slide Logo
  */
 func ascii_art() {
     let ascii = """
@@ -253,6 +253,13 @@ func ascii_art() {
     )
 }
 
+/**
+ Returns the biggest value in the complete matchfield
+ 
+ - Parameter matchfield: The matchfield
+ 
+ - Returns: The biggest value in the matchfield as Integer
+ */
 func get_highest_value(in matchfield: [[Int]]) -> Int {
     return matchfield.joined().sorted{$0 > $1}[0]
 }
