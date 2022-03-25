@@ -10,7 +10,7 @@
 		C3069F0127EDE80B00F9D731 /* game-helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3069F0027EDE80B00F9D731 /* game-helpers.swift */; };
 		C3069F0327EDE83A00F9D731 /* visual-helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3069F0227EDE83A00F9D731 /* visual-helpers.swift */; };
 		C32BE9CD27EA38E500832D57 /* Chalk in Frameworks */ = {isa = PBXBuildFile; productRef = C32BE9CC27EA38E500832D57 /* Chalk */; };
-		C36D680227E8EC27007D5CE8 /* game-algo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D680127E8EC27007D5CE8 /* game-algo.swift */; };
+		C36D680227E8EC27007D5CE8 /* game-algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D680127E8EC27007D5CE8 /* game-algorithm.swift */; };
 		C3BC741B27E697350062A854 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BC741A27E697350062A854 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +29,7 @@
 /* Begin PBXFileReference section */
 		C3069F0027EDE80B00F9D731 /* game-helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "game-helpers.swift"; sourceTree = "<group>"; };
 		C3069F0227EDE83A00F9D731 /* visual-helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "visual-helpers.swift"; sourceTree = "<group>"; };
-		C36D680127E8EC27007D5CE8 /* game-algo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "game-algo.swift"; sourceTree = "<group>"; };
+		C36D680127E8EC27007D5CE8 /* game-algorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "game-algorithm.swift"; sourceTree = "<group>"; };
 		C3BC741727E697350062A854 /* ShellSlide */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ShellSlide; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BC741A27E697350062A854 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,7 +68,7 @@
 				C3BC741A27E697350062A854 /* main.swift */,
 				C3069F0227EDE83A00F9D731 /* visual-helpers.swift */,
 				C3069F0027EDE80B00F9D731 /* game-helpers.swift */,
-				C36D680127E8EC27007D5CE8 /* game-algo.swift */,
+				C36D680127E8EC27007D5CE8 /* game-algorithm.swift */,
 			);
 			path = ShellSlide;
 			sourceTree = "<group>";
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C36D680227E8EC27007D5CE8 /* game-algo.swift in Sources */,
+				C36D680227E8EC27007D5CE8 /* game-algorithm.swift in Sources */,
 				C3069F0127EDE80B00F9D731 /* game-helpers.swift in Sources */,
 				C3BC741B27E697350062A854 /* main.swift in Sources */,
 				C3069F0327EDE83A00F9D731 /* visual-helpers.swift in Sources */,
