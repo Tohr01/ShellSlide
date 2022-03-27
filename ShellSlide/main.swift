@@ -20,7 +20,7 @@ if let saved_highscore = UserDefaults.standard.value(forKey: "highscore") as? In
     highscore = saved_highscore
 }
 
-// Retrieve saved game
+// Retrieve saved game from UserDefaults
 if let saved_game = UserDefaults.standard.value(forKey: "saved_game") as? [[Int]], let saved_score = UserDefaults.standard.value(forKey: "saved_score") as? Int {
     var decision : String? = nil
     // Handle load, proceed or delete savestate
@@ -172,3 +172,17 @@ while possible(matchfield) {
     clear_screen()
 }
 
+// Player has lost
+// If game loaded -> delete
+if game_loaded {
+    UserDefaults.standard.removeObject(forKey: "saved_score")
+    UserDefaults.standard.removeObject(forKey: "saved_game")
+}
+
+clear_screen()
+print(ck.bold.red.on("You lost! :("))
+print("\n")
+print("Your score was \(current_score)")
+sleep(5)
+
+// Process quits 
