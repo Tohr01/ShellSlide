@@ -2,7 +2,7 @@
 //  visual-helpers.swift
 //  ShellSlide
 //
-//  Created by Carl Raabe on 25.03.22.
+//  Created by Tohr01 on 25.03.22.
 //
 
 import Foundation
