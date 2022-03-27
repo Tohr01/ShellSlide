@@ -7,8 +7,9 @@
 ![Saving and resuming a game](https://github.com/Tohr01/ShellSlide/blob/main/screenshots/load_game.png)
 
 ## Installation (macOS only)
-1. Download the latest ZIP file from the [Releases tab](https://github.com/Tohr01/ShellSlide/releases/latest)
-2. Unzip and run binary 'ShellSlide'
+1. Download the latest binary file from the [Releases tab](https://github.com/Tohr01/ShellSlide/releases/latest)
+2. Run binary 'ShellSlide'
+3. Have fun!
 
 #### Add ShellSlide to your PATH
 1. Move 'ShellSlide' binary to ```/usr/local/bin```
