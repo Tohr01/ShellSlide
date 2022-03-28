@@ -4,6 +4,7 @@
 ## Features
 - Keep track of your overall highscore
 - Easily save and resume your games
+
 ![Saving and resuming a game](https://github.com/Tohr01/ShellSlide/blob/main/screenshots/load_game.png)
 
 ## Installation (macOS only)
