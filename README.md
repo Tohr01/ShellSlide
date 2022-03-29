@@ -9,8 +9,9 @@
 
 ## Installation (macOS only)
 1. Download the latest binary file from the [Releases tab](https://github.com/Tohr01/ShellSlide/releases/tag/release)
-2. Run binary 'ShellSlide'
-3. Have fun!
+2. Right click binary 'ShellSlide' and click open
+3. Click open again
+4. Have fun!
 
 #### Add ShellSlide to your PATH
 1. Move 'ShellSlide' binary to ```/usr/local/bin```
